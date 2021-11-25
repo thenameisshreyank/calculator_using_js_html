@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size:1.2rem;
+        padding: 0;
+        margin: 0;
+        
+    }
+#mainbox{
+    position: absolute;
+    display: inline-block;
+    height: 425px;
+    border: 2px solid black;
+    width: 25%;
+    margin: 80px 45px 50px 436px;
+    border-radius:20px;
+}
+#display{
+    display: flex;
+    border: 2px solid rgb(148, 10, 228);
+    margin: 35px 2px 2px 4.8px;
+    padding: 10px;
+    height: 45px;
+    width: 97%;
+    border-radius:8px;
+    
+}
+#buttons{
+    position: absolute;
+    background-color: burlywood;
+    height: 312px;
+    width: 96%;
+    border: 2px solid black;
+    margin: 12px 2px 2px 8px;
+    padding: 5px;
+    border-radius:8px;
+
+}
+
+button{
+    margin:7.5px 7.5px 7.5px 17px;
+    padding: 3.5px;
+    position: relative;
+    height: 45px;
+    width: 45px;
+    border-radius:10px;
+}
+button:hover{
+    color:white;
+    background-color: black;
+}
+
+h1{
+    margin: 0px 120px;
+    padding: 2px;
+    position: absolute;
+    font-size: 1.3rem;
+   
+    
+    
+}
+.customization{
+    position: relative;
+}
+
+</style>
+<body>
+   
+    <div id="mainbox">
+        <h1 >Calculator</h1>
+        <input id="display">
+        
+        <div id="buttons">
+            <button >C</button>
+            <button  value="0">X</button>
+            <button  value="%">%</button>
+            <button  value="+">+</button>
+            <button  value="0">0</button>
+            <button  value="1">1</button>
+            <button  value="2">2</button>
+            <button  value="3">3</button>
+            <button  value="-">-</button>
+            <button  value="4">4</button>
+            <button  value="5">5</button>
+            <button  value="*">*</button>
+            <button  value="6">6</button>
+            <button  value="7">7</button>
+            <button  value="8">8</button>
+            <button  value="/">/</button>
+            <button  value="9">9</button>
+            <button  value="0">5</button>
+            <button  value="0">6</button>
+            <button  value="=" >=</button>
+           
+            
+        </div>
+    </div>
+    <div class="customization"></div>
+</body>
+<script>
+ let dispaly=document.getElementById('display');
+ let displayvalue='';
+ 
+ let buttons=document.querySelectorAll('button');
+ for(item of buttons){
+    item.addEventListener('click',(e)=>{
+        let buttontext=e.target.innerText;
+        console.log(buttontext);
+        if(buttontext=='='){
+            dispaly.value=eval(displayvalue);
+        }
+        else if(buttontext=='C'){
+            displayvalue='';
+            dispaly.value=displayvalue;
+        }
+        else if(buttontext=='X'){
+            displayvalue=dispaly.value.slice(0,(dispaly.value.length)-1);
+            dispaly.value=displayvalue;
+        }
+        else{
+            displayvalue+=buttontext;
+            dispaly.value=displayvalue;
+        }
+        
+    })
+
+ }
+</script>
+</html>
